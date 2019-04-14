@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableTop="@drawable/ic_launcher_blue_foreground"
+        android:drawableTint="@color/blue_color_primary"
+        android:fontFamily="sans-serif-light"
+        android:text="BLUE"
+        android:textSize="60dp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btn_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_margin="16dp"
+        android:text="public" />
+
+    <Button
+        android:id="@+id/btn_private"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:text="private" />
+
+</FrameLayout>

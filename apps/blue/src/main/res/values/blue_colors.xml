@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_color_primary_dark">#1A75BE</color>
+    <color name="blue_color_primary">#2196F3</color>
+    <color name="blue_color_accent">#FF9800</color>
+
+    <color name="blue_activity_background">#F0F0FF</color>
+    <color name="blue_text_color_primary">#323264</color>
+    <color name="blue_launcher_background">#2196F3</color>
+</resources>

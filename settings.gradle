@@ -1,0 +1,9 @@
+include ":apps:blue",
+        ":apps:red",
+        ":features:list:list_contract",
+        ":features:list:list_view",
+        ":features:details",
+        ":libraries:actions",
+        ":libraries:data:cards",
+        ":libraries:tracking",
+        ":libraries:utils"
