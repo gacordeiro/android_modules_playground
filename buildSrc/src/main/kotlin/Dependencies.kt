@@ -19,10 +19,11 @@ object Versions {
     const val androidx_espresso = "3.1.0"
     const val androidx_testing = "1.1.1"
 
-    const val gradleandroid = "3.4.0-rc03"
+    const val gradleandroid = "3.3.2"
     const val kotlin = "1.3.21"
 
     const val picasso = "2.5.2"
+    const val pokemon = "1.0.18"
     const val timber = "4.7.1"
 
     object Rx {
@@ -36,7 +37,15 @@ object Deps {
 
     object Feats {
         const val details = ":features:details"
-        const val list = ":features:list:list_view"
+        const val list = ":features:list:list_view" //TODO replace for a unifier
+
+        object List {
+            const val contract = ":features:list:list_contract"
+            const val presentation = ":features:list:list_presentation"
+            const val source_got = ":features:list:list_source_got"
+            const val source_pokemon = ":features:list:list_source_pokemon"
+            const val view = ":features:list:list_view"
+        }
     }
 
     object Libs {
@@ -58,6 +67,7 @@ object Deps {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+    const val pokemon = "io.pokemontcg:pokemon-tcg-sdk-kotlin:${Versions.pokemon}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     object Rx {
