@@ -36,7 +36,8 @@ android {
 
 dependencies {
     implementation(project(Deps.Feats.details))
-    implementation(project(Deps.Feats.list))
+    implementation(project(Deps.Feats.List.view)) //TODO remove this dependencies later and provide via injection
+
     implementation(project(Deps.Libs.actions))
     implementation(project(Deps.Libs.cards))
     implementation(project(Deps.Libs.tracking))
@@ -44,6 +45,8 @@ dependencies {
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
     implementation(Deps.kotlin)
+    implementation(Deps.timber)
+    
     implementation(Deps.androidx_appcompat)
     implementation(Deps.androidx_core)
     implementation(Deps.androidx_constraintlayout)
