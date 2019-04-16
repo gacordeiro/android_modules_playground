@@ -6,6 +6,10 @@ plugins {
     kotlin("android.extensions")
 }
 
+androidExtensions {
+    configure(delegateClosureOf<AndroidExtensionsExtension> { isExperimental = true })
+}
+
 dependencies {
     implementation(Deps.kotlin)
     testImplementation(Deps.testlib_junit)
