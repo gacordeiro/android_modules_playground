@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="img_grid_width">152dp</dimen>
+    <dimen name="img_grid_height">114dp</dimen>
+    <dimen name="img_list_width">92dp</dimen>
+    <dimen name="img_list_height">69dp</dimen>
+    <dimen name="img_picture_width">328dp</dimen>
+    <dimen name="img_picture_height">246dp</dimen>
+</resources>

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tutuland.modularsandbox.apps.blue">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BlueApp"
         android:allowBackup="true"
