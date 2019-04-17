@@ -4,16 +4,19 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
 }
 
 androidExtensions {
     configure(delegateClosureOf<AndroidExtensionsExtension> { isExperimental = true })
 }
 
+kapt {
+    useBuildCache = true
+}
+
 dependencies {
     api(project(Deps.Feats.List.contract))
-    api(project(Deps.Feats.List.presentation))//TODO remove this dependencies later and provide via injection
-    api(project(Deps.Feats.List.source_got))//TODO remove this dependencies later and provide via injection
 
     implementation(project(Deps.Libs.actions))
     implementation(project(Deps.Libs.cards))
@@ -23,6 +26,11 @@ dependencies {
     implementation(Deps.kotlin)
     implementation(Deps.picasso)
     implementation(Deps.timber)
+
+    implementation(Deps.Dagger.androidSupport)
+    kapt(Deps.Dagger.androidProcessor)
+    implementation(Deps.Dagger.dagger)
+    kapt(Deps.Dagger.daggerCompiler)
 
     implementation(Deps.Rx.android)
     implementation(Deps.Rx.java)

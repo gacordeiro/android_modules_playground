@@ -20,6 +20,10 @@ interface Tracker {
     }
 }
 
+class AppTracker(private val trackerList: List<Tracker>) : Tracker {
+    override fun track(event: Tracker.Event) = trackerList.forEach { it track event }
+}
+
 class TimberTracker : Tracker {
     override fun track(event: Tracker.Event) {
         Timber.d("---------------------------------------")

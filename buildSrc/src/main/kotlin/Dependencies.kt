@@ -26,6 +26,10 @@ object Versions {
     const val pokemon = "1.0.18"
     const val timber = "4.7.1"
 
+    object Dagger {
+        const val baseLib = "2.21"
+    }
+
     object Rx {
         const val android = "2.1.0"
         const val binding = "2.2.0"
@@ -69,6 +73,13 @@ object Deps {
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
     const val pokemon = "io.pokemontcg:pokemon-tcg-sdk-kotlin:${Versions.pokemon}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
+    object Dagger {
+        const val androidSupport = "com.google.dagger:dagger-android-support:${Versions.Dagger.baseLib}"
+        const val androidProcessor = "com.google.dagger:dagger-android-processor:${Versions.Dagger.baseLib}"
+        const val dagger = "com.google.dagger:dagger:${Versions.Dagger.baseLib}"
+        const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.Dagger.baseLib}"
+    }
 
     object Rx {
         const val android = "io.reactivex.rxjava2:rxandroid:${Versions.Rx.android}"

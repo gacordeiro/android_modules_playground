@@ -4,10 +4,15 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
 }
 
 androidExtensions {
     configure(delegateClosureOf<AndroidExtensionsExtension> { isExperimental = true })
+}
+
+kapt {
+    useBuildCache = true
 }
 
 android {
@@ -36,7 +41,10 @@ android {
 
 dependencies {
     implementation(project(Deps.Feats.details))
-    implementation(project(Deps.Feats.List.view)) //TODO remove this dependencies later and provide via injection
+    implementation(project(Deps.Feats.List.view))
+    implementation(project(Deps.Feats.List.presentation))
+    implementation(project(Deps.Feats.List.source_pokemon))
+    implementation(project(Deps.Feats.List.source_got)) //TODO remove this on red
 
     implementation(project(Deps.Libs.actions))
     implementation(project(Deps.Libs.cards))
@@ -46,12 +54,20 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
     implementation(Deps.kotlin)
     implementation(Deps.timber)
-    
+
+    implementation(Deps.Rx.android)
+    implementation(Deps.Rx.java)
+
     implementation(Deps.androidx_appcompat)
     implementation(Deps.androidx_core)
     implementation(Deps.androidx_constraintlayout)
     implementation(Deps.androidx_material)
     implementation(Deps.androidx_recyclerview)
+
+    implementation(Deps.Dagger.androidSupport)
+    kapt(Deps.Dagger.androidProcessor)
+    implementation(Deps.Dagger.dagger)
+    kapt(Deps.Dagger.daggerCompiler)
 
     testImplementation(Deps.testlib_junit)
 

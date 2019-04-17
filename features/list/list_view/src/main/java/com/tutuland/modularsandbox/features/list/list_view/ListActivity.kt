@@ -7,37 +7,41 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tutuland.modularsandbox.features.list.list_contract.CardList
-import com.tutuland.modularsandbox.features.list.list_presentation.ListPresenter
-import com.tutuland.modularsandbox.features.list.list_source_got.GotGateway
 import com.tutuland.modularsandbox.libraries.actions.Actions.openDetailsScreen
 import com.tutuland.modularsandbox.libraries.data.cards.Card
-import com.tutuland.modularsandbox.libraries.data.cards.MemoryCardStorage
-import com.tutuland.modularsandbox.libraries.tracking.TimberTracker
 import com.tutuland.modularsandbox.libraries.tracking.Tracker
 import com.tutuland.modularsandbox.libraries.utils.gone
 import com.tutuland.modularsandbox.libraries.utils.image.ImageLoader
-import com.tutuland.modularsandbox.libraries.utils.image.PicassoImageLoader
 import com.tutuland.modularsandbox.libraries.utils.inflate
 import com.tutuland.modularsandbox.libraries.utils.show
-import com.tutuland.modularsandbox.libraries.utils.uiScheduler
+import dagger.android.AndroidInjection
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_activity.*
 import kotlinx.android.synthetic.main.list_item.*
+import javax.inject.Inject
 
 class ListActivity : AppCompatActivity(), CardList.View {
 
-    private val tracker: Tracker = TimberTracker()
-
-    private val presenter: CardList.Presenter = ListPresenter(
-        this,
-        GotGateway(MemoryCardStorage(), tracker),
-        uiScheduler
-    )
-    private val imageLoader: ImageLoader = PicassoImageLoader(this)
-
+    @Inject lateinit var tracker: Tracker
+    @Inject lateinit var presenter: CardList.Presenter
+    @Inject lateinit var imageLoader: ImageLoader
     private val adapter: ListAdapter = ListAdapter()
 
+    /*
+     private val tracker: Tracker = TimberTracker()
+
+     private val presenter: CardList.Presenter = ListPresenter(
+         this,
+         GotGateway(MemoryCardStorage(), tracker),
+         uiScheduler
+     )
+     private val imageLoader: ImageLoader = PicassoImageLoader(this)
+
+     private val adapter: ListAdapter = ListAdapter()
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
         tracker track Tracker.Event.ScreenView(getString(R.string.list_title))
