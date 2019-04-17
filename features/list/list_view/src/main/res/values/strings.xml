@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">list</string>
+    <string name="list_title">Card List</string>
+    <string name="list_error_state">Could not retieve the cards.\nPull to refresh and try again :)</string>
 </resources>

@@ -3,7 +3,9 @@
     package="com.tutuland.modularsandbox.features.list.list_view">
 
     <application>
-        <activity android:name=".ListActivity">
+        <activity
+            android:name=".ListActivity"
+            android:label="@string/list_title">
             <intent-filter>
                 <action android:name="com.tutuland.modularsandbox.features.list.open" />
                 <category android:name="android.intent.category.DEFAULT" />

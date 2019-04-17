@@ -9,7 +9,10 @@ import com.tutuland.modularsandbox.libraries.actions.Actions.openDetailsScreen
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.data.cards.MemoryCardStorage
 import com.tutuland.modularsandbox.libraries.tracking.TimberTracker
+import com.tutuland.modularsandbox.libraries.utils.gone
+import com.tutuland.modularsandbox.libraries.utils.show
 import io.reactivex.android.schedulers.AndroidSchedulers
+import kotlinx.android.synthetic.main.list_activity.*
 import timber.log.Timber
 
 class ListActivity : AppCompatActivity(), CardList.View {
@@ -24,6 +27,12 @@ class ListActivity : AppCompatActivity(), CardList.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
 
+        setSupportActionBar(list_toolbar)
+        supportActionBar?.run {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_back)
+        }
+        list_swipe_refresh.setOnRefreshListener { presenter.bind() }
         presenter.bind()
     }
 
@@ -33,19 +42,21 @@ class ListActivity : AppCompatActivity(), CardList.View {
     }
 
     override fun showLoading() {
-        Timber.d("showLoading")
+        if (!list_swipe_refresh.isRefreshing) list_swipe_refresh.isRefreshing = true
     }
 
     override fun hideLoading() {
-        Timber.d("hideLoading")
+        if (list_swipe_refresh.isRefreshing) list_swipe_refresh.isRefreshing = false
     }
 
     override fun showErrorState() {
-        Timber.d("showErrorState")
+        rv_list.gone()
+        list_error_state.show()
     }
 
     override fun hideErrorState() {
-        Timber.d("hideErrorState")
+        rv_list.show()
+        list_error_state.gone()
     }
 
     override fun display(cards: List<Card.Data>) {
