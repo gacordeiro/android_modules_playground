@@ -4,7 +4,7 @@ import android.content.Context
 import com.tutuland.modularsandbox.apps.red.RedApp
 import com.tutuland.modularsandbox.features.list.list_contract.CardList
 import com.tutuland.modularsandbox.features.list.list_presentation.ListPresenter
-import com.tutuland.modularsandbox.features.list.list_source_got.GotGateway
+import com.tutuland.modularsandbox.features.list.list_source_pokemon.PokemonGateway
 import com.tutuland.modularsandbox.features.list.list_view.ListActivity
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.data.cards.MemoryCardStorage
@@ -13,11 +13,13 @@ import com.tutuland.modularsandbox.libraries.tracking.TimberTracker
 import com.tutuland.modularsandbox.libraries.tracking.Tracker
 import com.tutuland.modularsandbox.libraries.utils.image.ImageLoader
 import com.tutuland.modularsandbox.libraries.utils.image.PicassoImageLoader
+import com.tutuland.modularsandbox.libraries.utils.ioScheduler
 import com.tutuland.modularsandbox.libraries.utils.uiScheduler
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import io.pokemontcg.Pokemon
 import javax.inject.Singleton
 
 @Module(
@@ -43,7 +45,8 @@ abstract class ActivityBindingModule {
 @Module
 class CardListModule {
     @Provides
-    fun provideSource(storage: Card.Storage, tracker: Tracker): CardList.Source = GotGateway(storage, tracker)
+    fun provideSource(storage: Card.Storage, tracker: Tracker): CardList.Source =
+        PokemonGateway(Pokemon(), storage, tracker, ioScheduler)
 
     @Provides
     fun provideView(view: ListActivity): CardList.View = view

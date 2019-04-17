@@ -27,19 +27,6 @@ class ListActivity : AppCompatActivity(), CardList.View {
     @Inject lateinit var imageLoader: ImageLoader
     private val adapter: ListAdapter = ListAdapter()
 
-    /*
-     private val tracker: Tracker = TimberTracker()
-
-     private val presenter: CardList.Presenter = ListPresenter(
-         this,
-         GotGateway(MemoryCardStorage(), tracker),
-         uiScheduler
-     )
-     private val imageLoader: ImageLoader = PicassoImageLoader(this)
-
-     private val adapter: ListAdapter = ListAdapter()
-     */
-
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)

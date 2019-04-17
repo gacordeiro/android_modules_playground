@@ -17,7 +17,7 @@ dependencies {
     implementation(project(Deps.Libs.utils))
 
     implementation(Deps.kotlin)
-    implementation(Deps.pokemon)
+    api(Deps.pokemon)
     implementation(Deps.timber)
     implementation(Deps.Rx.java)
 }

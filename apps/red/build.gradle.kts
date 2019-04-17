@@ -44,7 +44,6 @@ dependencies {
     implementation(project(Deps.Feats.List.view))
     implementation(project(Deps.Feats.List.presentation))
     implementation(project(Deps.Feats.List.source_pokemon))
-    implementation(project(Deps.Feats.List.source_got)) //TODO remove this on red
 
     implementation(project(Deps.Libs.actions))
     implementation(project(Deps.Libs.cards))
