@@ -59,8 +59,4 @@ dependencies {
     kapt(Deps.Dagger.daggerCompiler)
 
     testImplementation(Deps.testlib_junit)
-
-    androidTestImplementation(Deps.testandroidx_runner)
-    androidTestImplementation(Deps.testandroidx_rules)
-    androidTestImplementation(Deps.testandroidx_espressocore)
 }

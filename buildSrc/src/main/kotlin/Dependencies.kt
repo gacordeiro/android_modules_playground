@@ -16,8 +16,6 @@ object Versions {
     const val material = "1.1.0-alpha04"
 
     const val junit = "4.12"
-    const val androidx_espresso = "3.1.0"
-    const val androidx_testing = "1.1.1"
 
     const val gradleandroid = "3.4.0"
     const val kotlin = "1.3.30"
@@ -90,10 +88,5 @@ object Deps {
 
     //Unit Testing *****************************************************************************************************
     const val testlib_junit = "junit:junit:${Versions.junit}"
-
-    //Android Testing **************************************************************************************************
-    const val testandroidx_rules = "androidx.test:rules:${Versions.androidx_testing}"
-    const val testandroidx_runner = "androidx.test:runner:${Versions.androidx_testing}"
-    const val testandroidx_espressocore = "androidx.test.espresso:espresso-core:${Versions.androidx_espresso}"
 }
 

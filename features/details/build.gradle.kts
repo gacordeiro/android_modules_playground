@@ -15,8 +15,4 @@ dependencies {
     implementation(Deps.androidx_recyclerview)
 
     testImplementation(Deps.testlib_junit)
-
-    androidTestImplementation(Deps.testandroidx_runner)
-    androidTestImplementation(Deps.testandroidx_rules)
-    androidTestImplementation(Deps.testandroidx_espressocore)
 }
