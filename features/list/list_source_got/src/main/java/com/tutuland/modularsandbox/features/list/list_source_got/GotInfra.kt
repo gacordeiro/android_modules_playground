@@ -19,7 +19,7 @@ class GotGateway(
                     Titles: Aegon Targaryen, the Sixth of his name,
                     Heir to the Iron Throne,
                     King of the North,
-                     Lord Commander of the Night's Watch
+                    Lord Commander of the Night's Watch
                 """.trimIndent()
             ),
             Card.Data(
@@ -27,11 +27,11 @@ class GotGateway(
                 "http://lcg-cdn.fantasyflightgames.com/got2nd/GT01_160.jpg",
                 """
                     Houses: Targaryen
-                    Titles: Daenerys Targaryen, the First of Her Name, The Unburnt,
-                    Queen of the Andals, the Rhoynarand the First Men,
-                    Queen of Meereen, Khaleesi of the Great Grass Sea,
-                    Protector of the Realm, Lady Regent of the Seven Kingdoms,
-                    Breaker of Chains, Mother of Dragons
+                    Titles: Daenerys Targaryen, the First of Her Name,
+                    The Unburnt, Queen of the Andals, the Rhoynarand
+                    and the First Men, Queen of Meereen, Mother of Dragons,
+                    Khaleesi of the Great Grass Sea, Breaker of Chains,
+                    Lady Regent of the Seven Kingdoms, Protector of the Realm
                 """.trimIndent()
             ),
             Card.Data(

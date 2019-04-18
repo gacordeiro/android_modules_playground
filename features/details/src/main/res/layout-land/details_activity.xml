@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        tools:context=".details_view.DetailsActivity">
+
+        <ImageView
+            android:id="@+id/details_item_image"
+            android:layout_width="224dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerInside"
+            android:src="@color/details_text_background" />
+
+        <TextView
+            android:id="@+id/details_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/details_item_image"
+            android:background="@color/details_text_background"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:lines="1"
+            android:padding="4dp"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            tools:text="Pikachu" />
+
+        <TextView
+            android:id="@+id/details_item_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/details_item_title"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/details_item_image"
+            android:background="@color/details_text_background"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="4dp"
+            android:textSize="12sp"
+            tools:text="Pikachu" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
