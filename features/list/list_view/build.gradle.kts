@@ -1,18 +1,8 @@
-import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
-
 plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
-}
-
-androidExtensions {
-    configure(delegateClosureOf<AndroidExtensionsExtension> { isExperimental = true })
-}
-
-kapt {
-    useBuildCache = true
 }
 
 dependencies {

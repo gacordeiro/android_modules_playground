@@ -19,8 +19,8 @@ object Versions {
     const val androidx_espresso = "3.1.0"
     const val androidx_testing = "1.1.1"
 
-    const val gradleandroid = "3.3.2"
-    const val kotlin = "1.3.21"
+    const val gradleandroid = "3.4.0"
+    const val kotlin = "1.3.30"
 
     const val picasso = "2.5.2"
     const val pokemon = "1.0.18"

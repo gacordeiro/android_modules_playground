@@ -38,6 +38,18 @@ subprojects {
                 }
             }
         }
+
+        if (project.plugins.findPlugin('kotlin-android-extensions')) {
+            androidExtensions {
+                experimental = true
+            }
+        }
+
+        if (project.plugins.findPlugin('kotlin-kapt')) {
+            kapt {
+                useBuildCache = true
+            }
+        }
     }
 }
 
