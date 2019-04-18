@@ -1,0 +1,3 @@
+<resources>
+    <string name="details_error_state">Could not load card information</string>
+</resources>

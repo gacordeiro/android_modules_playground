@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import androidx.annotation.DrawableRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -17,6 +20,18 @@ const val DURATION_SHORT: Long = 500L //For actions that can happen twice in the
 const val DURATION_MEDIUM: Long = 800L //Long debounce for actions
 const val DURATION_LONG: Long = 1500L //For actions that trigger screen transitions or are blocking
 const val DURATION_VERY_LONG: Long = 3000L //For actions that invoke long requests
+
+fun AppCompatActivity.setToolbar(
+    toolbar: Toolbar?, showHomeAsUp: Boolean = true,
+    @DrawableRes upIndicator: Int = R.drawable.ic_back, title: String = ""
+) {
+    setSupportActionBar(toolbar)
+    supportActionBar?.run {
+        setDisplayHomeAsUpEnabled(showHomeAsUp)
+        setHomeAsUpIndicator(upIndicator)
+        if (title.isNotEmpty()) this.title = title
+    }
+}
 
 fun View?.show(animation: Animation? = null, duration: Long = DURATION_VERY_SHORT): View? =
     this?.apply {

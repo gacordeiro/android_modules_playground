@@ -12,7 +12,7 @@ import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import timber.log.Timber
 
-val defaultConfig = Bitmap.Config.RGB_565
+val defaultConfig = Bitmap.Config.ARGB_8888
 
 interface ImageLoader {
     fun load(url: String): ImageLoader //for final URLs

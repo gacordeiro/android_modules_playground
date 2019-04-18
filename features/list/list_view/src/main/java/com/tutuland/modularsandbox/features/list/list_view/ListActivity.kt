@@ -13,6 +13,7 @@ import com.tutuland.modularsandbox.libraries.tracking.Tracker
 import com.tutuland.modularsandbox.libraries.utils.gone
 import com.tutuland.modularsandbox.libraries.utils.image.ImageLoader
 import com.tutuland.modularsandbox.libraries.utils.inflate
+import com.tutuland.modularsandbox.libraries.utils.setToolbar
 import com.tutuland.modularsandbox.libraries.utils.show
 import dagger.android.AndroidInjection
 import kotlinx.android.extensions.LayoutContainer
@@ -31,13 +32,9 @@ class ListActivity : AppCompatActivity(), CardList.View {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
-        tracker track Tracker.Event.ScreenView(getString(R.string.list_title))
 
-        setSupportActionBar(list_toolbar)
-        supportActionBar?.run {
-            setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_back)
-        }
+        setToolbar(findViewById(R.id.toolbar))
+        tracker track Tracker.Event.ScreenView(getString(R.string.list_title))
 
         rv_list.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.grid_columns))
         rv_list.adapter = adapter
