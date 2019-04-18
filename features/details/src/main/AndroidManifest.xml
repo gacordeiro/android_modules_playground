@@ -3,7 +3,9 @@
     package="com.tutuland.modularsandbox.features.details">
 
     <application>
-        <activity android:name=".DetailsActivity">
+        <activity
+            android:name=".details_view.DetailsActivity"
+            android:label="@string/details_title">
             <intent-filter>
                 <action android:name="com.tutuland.modularsandbox.features.details.open" />
                 <category android:name="android.intent.category.DEFAULT" />

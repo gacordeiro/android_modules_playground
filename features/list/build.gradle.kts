@@ -7,6 +7,4 @@ plugins {
 dependencies {
     api(project(Deps.Libs.cards))
     api(project(Deps.Libs.utils))
-    api(Deps.kotlin)
-    api(Deps.Rx.java)
 }

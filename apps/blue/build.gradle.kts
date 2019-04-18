@@ -30,6 +30,7 @@ android {
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
     implementation(project(Deps.Feats.details))
     implementation(project(Deps.Feats.List.view))
     implementation(project(Deps.Feats.List.presentation))
@@ -40,23 +41,8 @@ dependencies {
     implementation(project(Deps.Libs.tracking))
     implementation(project(Deps.Libs.utils))
 
-    implementation(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
-    implementation(Deps.kotlin)
-    implementation(Deps.timber)
-
-    implementation(Deps.Rx.android)
-    implementation(Deps.Rx.java)
-
-    implementation(Deps.androidx_appcompat)
-    implementation(Deps.androidx_core)
-    implementation(Deps.androidx_constraintlayout)
-    implementation(Deps.androidx_material)
-    implementation(Deps.androidx_recyclerview)
-
     implementation(Deps.Dagger.androidSupport)
     kapt(Deps.Dagger.androidProcessor)
     implementation(Deps.Dagger.dagger)
     kapt(Deps.Dagger.daggerCompiler)
-
-    testImplementation(Deps.testlib_junit)
 }

@@ -16,10 +16,10 @@ class GotGateway(
                 "http://lcg-cdn.fantasyflightgames.com/got2nd/GT01_124.jpg",
                 """
                     Houses: Stark | Targaryen
-                    Titles: Lord Commander of the Night's Watch
-                            King of the North
-                            Aegon Targaryen, the Sixth of his name, Heir to the Iron Throne
-                    Played By: Kit Harington
+                    Titles: Aegon Targaryen, the Sixth of his name,
+                    Heir to the Iron Throne,
+                    King of the North,
+                     Lord Commander of the Night's Watch
                 """.trimIndent()
             ),
             Card.Data(
@@ -27,12 +27,11 @@ class GotGateway(
                 "http://lcg-cdn.fantasyflightgames.com/got2nd/GT01_160.jpg",
                 """
                     Houses: Targaryen
-                    Titles: Daenerys of the House Targaryen, the First of Her Name,
-                            The Unburnt, Queen of the Andals, the Rhoynar and the First Men,
-                            Queen of Meereen, Khaleesi of the Great Grass Sea,
-                            Protector of the Realm, Lady Regent of the Seven Kingdoms,
-                            Breaker of Chains and Mother of Dragons
-                    Played By: Emilia Clarke
+                    Titles: Daenerys Targaryen, the First of Her Name, The Unburnt,
+                    Queen of the Andals, the Rhoynarand the First Men,
+                    Queen of Meereen, Khaleesi of the Great Grass Sea,
+                    Protector of the Realm, Lady Regent of the Seven Kingdoms,
+                    Breaker of Chains, Mother of Dragons
                 """.trimIndent()
             ),
             Card.Data(
@@ -40,10 +39,30 @@ class GotGateway(
                 "http://lcg-cdn.fantasyflightgames.com/got2nd/GT15_2.jpg",
                 """
                     Houses: Lanister
-                    Titles: Hand of the King
-                            Master of Coin Lord of Casterly Rock
-                            Hand of the Queen
-                    Played By: Peter Dinklage
+                    Titles: Hand of the King,
+                    Master of Coin Lord of Casterly Rock,
+                    Hand of the Queen
+                """.trimIndent()
+            ),
+            Card.Data(
+                "Sansa Stark",
+                "http://lcg-cdn.fantasyflightgames.com/got2nd/GT01_147.jpg",
+                """
+                    Houses: Stark
+                    Titles: Lady of Winterfell,
+                    Warden of the North,
+                    Lady of Dreadfort,
+                    Lady of Riverrun
+                """.trimIndent()
+            ),
+            Card.Data(
+                "Gregor Clegane",
+                "http://lcg-cdn.fantasyflightgames.com/got2nd/GT04_49.jpg",
+                """
+                    Houses: Clegane
+                    Titles: Ser Knight of Clegane's Keep,
+                    The Mountain That Rides,
+                    Mad Dog
                 """.trimIndent()
             )
         )

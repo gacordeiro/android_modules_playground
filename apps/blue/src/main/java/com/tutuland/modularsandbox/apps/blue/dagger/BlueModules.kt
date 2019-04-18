@@ -2,6 +2,9 @@ package com.tutuland.modularsandbox.apps.blue.dagger
 
 import android.content.Context
 import com.tutuland.modularsandbox.apps.blue.BlueApp
+import com.tutuland.modularsandbox.features.details.CardDetails
+import com.tutuland.modularsandbox.features.details.details_presentation.DetailsPresenter
+import com.tutuland.modularsandbox.features.details.details_view.DetailsActivity
 import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.features.list.list_presentation.ListPresenter
 import com.tutuland.modularsandbox.features.list.list_source_got.GotGateway
@@ -36,8 +39,21 @@ class BlueAppModule(private val app: BlueApp) {
 
 @Module
 abstract class ActivityBindingModule {
+    @ContributesAndroidInjector(modules = [CardDetailsModule::class])
+    abstract fun contributeDetailsActivity(): DetailsActivity
+
     @ContributesAndroidInjector(modules = [CardListModule::class])
     abstract fun contributeListActivity(): ListActivity
+}
+
+@Module
+class CardDetailsModule {
+    @Provides
+    fun provideView(view: DetailsActivity): CardDetails.View = view
+
+    @Provides
+    fun providePresenter(view: CardDetails.View, storage: Card.Storage): CardDetails.Presenter =
+        DetailsPresenter(view, storage)
 }
 
 @Module

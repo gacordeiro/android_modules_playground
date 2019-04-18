@@ -1,3 +1,4 @@
 <resources>
-    <string name="details_error_state">Could not load card information</string>
+    <string name="details_title">Card details</string>
+    <string name="details_warn_card_not_found">Could not load card information</string>
 </resources>
