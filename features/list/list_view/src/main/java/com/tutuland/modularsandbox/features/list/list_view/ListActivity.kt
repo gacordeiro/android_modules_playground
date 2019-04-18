@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tutuland.modularsandbox.features.list.list_contract.CardList
+import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.libraries.actions.Actions.openDetailsScreen
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.tracking.Tracker

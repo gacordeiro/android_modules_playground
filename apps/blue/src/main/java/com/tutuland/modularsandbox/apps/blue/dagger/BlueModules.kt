@@ -2,7 +2,7 @@ package com.tutuland.modularsandbox.apps.blue.dagger
 
 import android.content.Context
 import com.tutuland.modularsandbox.apps.blue.BlueApp
-import com.tutuland.modularsandbox.features.list.list_contract.CardList
+import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.features.list.list_presentation.ListPresenter
 import com.tutuland.modularsandbox.features.list.list_source_got.GotGateway
 import com.tutuland.modularsandbox.features.list.list_view.ListActivity

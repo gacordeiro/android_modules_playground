@@ -1,6 +1,6 @@
 include ":apps:blue",
         ":apps:red",
-        ":features:list:list_contract",
+        ':features:list',
         ":features:list:list_presentation",
         ":features:list:list_source_got",
         ":features:list:list_source_pokemon",

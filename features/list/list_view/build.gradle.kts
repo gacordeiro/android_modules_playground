@@ -9,11 +9,8 @@ dependencies {
     api(project(Deps.Feats.List.contract))
 
     implementation(project(Deps.Libs.actions))
-    implementation(project(Deps.Libs.cards))
     implementation(project(Deps.Libs.tracking))
-    implementation(project(Deps.Libs.utils))
 
-    implementation(Deps.kotlin)
     implementation(Deps.picasso)
     implementation(Deps.timber)
 
@@ -23,7 +20,6 @@ dependencies {
     kapt(Deps.Dagger.daggerCompiler)
 
     implementation(Deps.Rx.android)
-    implementation(Deps.Rx.java)
 
     implementation(Deps.androidx_appcompat)
     implementation(Deps.androidx_core)

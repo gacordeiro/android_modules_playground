@@ -1,4 +1,4 @@
-package com.tutuland.modularsandbox.features.list.list_contract
+package com.tutuland.modularsandbox.features.list
 
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.utils.BindingPresenter

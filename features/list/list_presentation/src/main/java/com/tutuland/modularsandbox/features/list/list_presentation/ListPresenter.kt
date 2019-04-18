@@ -1,6 +1,6 @@
 package com.tutuland.modularsandbox.features.list.list_presentation
 
-import com.tutuland.modularsandbox.features.list.list_contract.CardList
+import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable

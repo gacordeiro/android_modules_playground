@@ -1,6 +1,6 @@
 package com.tutuland.modularsandbox.features.list.list_source_pokemon
 
-import com.tutuland.modularsandbox.features.list.list_contract.CardList
+import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.tracking.Tracker
 import io.pokemontcg.Pokemon

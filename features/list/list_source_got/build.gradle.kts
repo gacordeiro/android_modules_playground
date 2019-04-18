@@ -5,12 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(Deps.Feats.List.contract))
-    implementation(project(Deps.Libs.cards))
+    api(project(Deps.Feats.List.contract))
     implementation(project(Deps.Libs.tracking))
-    implementation(project(Deps.Libs.utils))
-
-    implementation(Deps.kotlin)
     implementation(Deps.timber)
-    implementation(Deps.Rx.java)
 }

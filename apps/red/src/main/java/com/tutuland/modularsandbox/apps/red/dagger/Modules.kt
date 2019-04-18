@@ -2,7 +2,7 @@ package com.tutuland.modularsandbox.apps.red.dagger
 
 import android.content.Context
 import com.tutuland.modularsandbox.apps.red.RedApp
-import com.tutuland.modularsandbox.features.list.list_contract.CardList
+import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.features.list.list_presentation.ListPresenter
 import com.tutuland.modularsandbox.features.list.list_source_pokemon.PokemonGateway
 import com.tutuland.modularsandbox.features.list.list_view.ListActivity

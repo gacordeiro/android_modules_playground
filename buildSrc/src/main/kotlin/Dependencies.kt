@@ -41,10 +41,9 @@ object Deps {
 
     object Feats {
         const val details = ":features:details"
-        const val list = ":features:list:list_view" //TODO replace for a unifier
 
         object List {
-            const val contract = ":features:list:list_contract"
+            const val contract = ":features:list"
             const val presentation = ":features:list:list_presentation"
             const val source_got = ":features:list:list_source_got"
             const val source_pokemon = ":features:list:list_source_pokemon"
