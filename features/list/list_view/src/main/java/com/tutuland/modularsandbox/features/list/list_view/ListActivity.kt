@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tutuland.modularsandbox.features.list.CardList
-import com.tutuland.modularsandbox.libraries.actions.Actions.openDetailsScreen
+import com.tutuland.modularsandbox.libraries.actions.Actions
+import com.tutuland.modularsandbox.libraries.actions.Actions.detailsScreenIntent
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.tracking.Tracker
 import com.tutuland.modularsandbox.libraries.utils.gone
@@ -28,6 +31,11 @@ class ListActivity : AppCompatActivity(), CardList.View {
     @Inject lateinit var imageLoader: ImageLoader
     private val adapter: ListAdapter = ListAdapter()
 
+    private lateinit var titleView: View
+    private lateinit var titleId: String
+    private lateinit var imageView: View
+    private lateinit var imageId: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -39,7 +47,7 @@ class ListActivity : AppCompatActivity(), CardList.View {
         rv_list.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.grid_columns))
         rv_list.adapter = adapter
 
-        list_swipe_refresh.setOnRefreshListener { presenter.bind() }
+        list_swipe_refresh.setOnRefreshListener { presenter.requestRefresh() }
         presenter.bind()
     }
 
@@ -68,7 +76,15 @@ class ListActivity : AppCompatActivity(), CardList.View {
 
     override fun display(cards: List<Card.Data>) = adapter display cards
 
-    override fun proceedToDetails() = openDetailsScreen()
+    override fun proceedToDetails() = detailsScreenIntent().let { intent ->
+        intent.putExtra(Actions.DETAILS_EXTRA_TITLE_ID, titleId)
+        intent.putExtra(Actions.DETAILS_EXTRA_IMAGE_ID, imageId)
+        ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this,
+            Pair.create(titleView, titleId),
+            Pair.create(imageView, imageId)
+        ).let { options -> startActivity(intent, options.toBundle()) }
+    }
 
     inner class ListAdapter(
         private val models: MutableList<Card.Data> = mutableListOf()
@@ -91,12 +107,20 @@ class ListActivity : AppCompatActivity(), CardList.View {
             LayoutContainer {
             infix fun bind(model: Card.Data) {
                 list_item_title.text = model.title
+                list_item_title.transitionName = "T:${model.hashCode()}"
+                list_item_image.transitionName = "I:${model.hashCode()}"
                 imageLoader.load(model.imageUrl)
                     .fit()
                     .centerCrop()
                     .into(list_item_image)
 
-                list_item_card.setOnClickListener { presenter clickOn model }
+                list_item_card.setOnClickListener {
+                    titleId = "T:${model.hashCode()}"
+                    titleView = list_item_title
+                    imageId = "I:${model.hashCode()}"
+                    imageView = list_item_image
+                    presenter clickOn model
+                }
             }
         }
     }

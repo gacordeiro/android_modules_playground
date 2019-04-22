@@ -5,6 +5,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(Deps.Libs.utils))
     implementation(Deps.kotlin)
     implementation(Deps.timber)
 }

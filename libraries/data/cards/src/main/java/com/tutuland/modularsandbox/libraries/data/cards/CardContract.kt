@@ -1,9 +1,11 @@
 package com.tutuland.modularsandbox.libraries.data.cards
 
+import com.tutuland.modularsandbox.libraries.utils.enumerateString
 import timber.log.Timber
 
 interface Card {
     interface Storage {
+        var listCache: List<Data>
         var selectedCard: Data?
     }
 
@@ -15,6 +17,16 @@ interface Card {
 }
 
 class MemoryCardStorage : Card.Storage {
+    override var listCache: List<Card.Data> = emptyList()
+        get() {
+            Timber.d("getListCache: ${field.size} items")
+            return field
+        }
+        set(value) {
+            field = value
+            Timber.d("setListCache: ${field.enumerateString()}")
+        }
+
     override var selectedCard: Card.Data? = null
         get() {
             Timber.d("getSelectedCard: $field")

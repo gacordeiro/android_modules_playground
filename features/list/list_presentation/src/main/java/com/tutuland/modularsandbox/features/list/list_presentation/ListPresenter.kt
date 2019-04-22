@@ -26,12 +26,16 @@ class ListPresenter(
         view?.proceedToDetails()
     }
 
-    private fun retrieveCardList() {
+    override fun requestRefresh() {
+        retrieveCardList(true)
+    }
+
+    private fun retrieveCardList(requestRefresh: Boolean = false) {
         view?.apply {
             showLoading()
             subs.clear()
             subs.add(
-                source.getCards()
+                source.getCards(requestRefresh)
                     .observeOn(scheduler)
                     .subscribe(::onListReceived, ::onErrorReceived)
             )

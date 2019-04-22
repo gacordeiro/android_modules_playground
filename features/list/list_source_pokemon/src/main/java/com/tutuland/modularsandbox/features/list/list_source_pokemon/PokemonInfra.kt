@@ -3,6 +3,7 @@ package com.tutuland.modularsandbox.features.list.list_source_pokemon
 import com.tutuland.modularsandbox.features.list.CardList
 import com.tutuland.modularsandbox.libraries.data.cards.Card
 import com.tutuland.modularsandbox.libraries.tracking.Tracker
+import com.tutuland.modularsandbox.libraries.utils.isNotNullOrEmpty
 import io.pokemontcg.Pokemon
 import io.pokemontcg.model.SuperType
 import io.reactivex.Scheduler
@@ -14,8 +15,9 @@ class PokemonGateway(
     private val tracker: Tracker,
     private val scheduler: Scheduler
 ) : CardList.Source {
-    override fun getCards(): Single<List<Card.Data>> =
-        pokeDex.card()
+    override fun getCards(forceRefresh: Boolean): Single<List<Card.Data>> =
+        if (!forceRefresh && storage.listCache.isNotNullOrEmpty()) Single.just(storage.listCache)
+        else pokeDex.card()
             .observeAll()
             .subscribeOn(scheduler)
             .map { pokemons ->
@@ -38,7 +40,7 @@ class PokemonGateway(
                         imageUrl = pokemon.imageUrlHiRes,
                         description = description
                     )
-                }
+                }.also { storage.listCache = it }
             }.firstOrError()
 
     override fun select(card: Card.Data) {
