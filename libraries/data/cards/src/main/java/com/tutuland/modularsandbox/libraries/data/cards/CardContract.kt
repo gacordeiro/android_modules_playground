@@ -19,7 +19,7 @@ interface Card {
 class MemoryCardStorage : Card.Storage {
     override var listCache: List<Card.Data> = emptyList()
         get() {
-            Timber.d("getListCache: ${field.enumerateString()}")
+            Timber.d("getListCache: ${field.size} items")
             return field
         }
         set(value) {
