@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(Deps.Libs.actions))
     implementation(project(Deps.Libs.cards))
     implementation(project(Deps.Libs.tracking))
     implementation(project(Deps.Libs.utils))

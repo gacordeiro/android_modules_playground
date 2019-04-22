@@ -8,7 +8,7 @@ import io.reactivex.Single
 
 interface CardList {
     interface Source {
-        fun getCards(): Single<List<Card.Data>>
+        fun getCards(forceRefresh: Boolean = false): Single<List<Card.Data>>
         infix fun select(card: Card.Data)
     }
 
@@ -19,5 +19,6 @@ interface CardList {
 
     interface Presenter : BindingPresenter {
         infix fun clickOn(card: Card.Data)
+        fun requestRefresh()
     }
 }

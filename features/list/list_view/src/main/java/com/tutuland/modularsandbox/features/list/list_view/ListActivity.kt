@@ -47,7 +47,7 @@ class ListActivity : AppCompatActivity(), CardList.View {
         rv_list.layoutManager = GridLayoutManager(this, resources.getInteger(R.integer.grid_columns))
         rv_list.adapter = adapter
 
-        list_swipe_refresh.setOnRefreshListener { presenter.bind() }
+        list_swipe_refresh.setOnRefreshListener { presenter.requestRefresh() }
         presenter.bind()
     }
 
@@ -107,6 +107,8 @@ class ListActivity : AppCompatActivity(), CardList.View {
             LayoutContainer {
             infix fun bind(model: Card.Data) {
                 list_item_title.text = model.title
+                list_item_title.transitionName = "T:${model.hashCode()}"
+                list_item_image.transitionName = "I:${model.hashCode()}"
                 imageLoader.load(model.imageUrl)
                     .fit()
                     .centerCrop()
@@ -115,12 +117,8 @@ class ListActivity : AppCompatActivity(), CardList.View {
                 list_item_card.setOnClickListener {
                     titleId = "T:${model.hashCode()}"
                     titleView = list_item_title
-                    titleView.transitionName = titleId
-
                     imageId = "I:${model.hashCode()}"
                     imageView = list_item_image
-                    imageView.transitionName = imageId
-
                     presenter clickOn model
                 }
             }

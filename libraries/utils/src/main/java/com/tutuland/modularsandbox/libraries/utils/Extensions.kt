@@ -81,6 +81,9 @@ fun CharSequence?.isNotNullOrEmpty(): Boolean = !isNullOrEmpty()
 
 fun <T> Collection<T>?.isNotNullOrEmpty(): Boolean = !orEmpty().isEmpty()
 
+fun <T> Collection<T>.enumerateString(): String = buildString {
+    this@enumerateString.forEachIndexed { i, item -> append("[$i] $item\n") }
+}
 
 val ioScheduler: Scheduler get() = Schedulers.io()
 val uiScheduler: Scheduler get() = AndroidSchedulers.mainThread()
